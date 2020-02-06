@@ -1,11 +1,10 @@
-# Gas type
-#1 PREMIUM
-#2 REGULAR
-#3 ELITE
-#4 DIESEL
-
+#Gas type
+#1 Premium
+#2 Regular
+#3 Elite
+#4 Diesel
 class Car:
-    def __init__(self, brand, model,gas_type):
+    def __init__(self, brand, model, gas_type):
         self.brand = brand
         self.model = model
         self.gas_type = gas_type
@@ -17,5 +16,5 @@ class Car:
             return "Regular"
         elif self.gas_type == 3:
             return "Elite"
-        elif self.gas_type == 4:
+        else:
             return "Diesel"
