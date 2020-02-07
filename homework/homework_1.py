@@ -17,10 +17,10 @@ class Countries:
     def all_info(self):
         return self.name + self.population + self.land_area + self.density
 
-    def loop(self):
-        for country in self.name:
-            if self.name == "Ukraine":
-                return self.all_info()
+    # def loop(self):
+    #     for country in self.name:
+    #         if self.name == "Ukraine":
+    #             return self.all_info()
 
     def overpopulation(self):
         if self.population > 150000000 and self.land_area < 9000000:
