@@ -33,3 +33,6 @@ class Tv:
             return "perfect"
         else:
             return "wrong data"
+
+
+
