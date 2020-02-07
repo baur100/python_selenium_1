@@ -4,26 +4,31 @@
 # 3-5 = 85000
 # > 5 = +20000/yearly
 
-class EngSalary:
-    def __init__(self, name, title, years, salary):
-        self.title = title
-        self.years = years
-        self.salary = salary
+class Countries:
+    def __init__(self, name, population, land_area, density):
         self.name = name
+        self.population = population
+        self.land_area = land_area
+        self.density = density
 
-    def pay_scale(self):
-        if self.years == "0-1":
-            return 60000
-        elif self.years == "1-3":
-            return 70000
-        elif self.years == "3-5":
-            return 85000
+    def county_pop(self):
+        return self.name + self.population
 
+    def area(self):
+        return self.name == self.land_area
 
-    def senior(self):
-        if self.years > 5:
-            return self.salary + 20000
+    def country_dens(self):
+        return self.name + self.population + self.density
 
-    def promotion(self):
-        if self.years in self.title:
-            return self.title == "Senior"
+    def all_info(self):
+        return self.name + self.population + self.land_area + self.density
+
+    def loop(self):
+        for country in self.name:
+            if self.name == "Ukraine":
+                return self.all_info()
+
+    def overpopulation(self):
+        if self.population > 150000000 and self.land_area < 9000000:
+            return self.name + " is overpopulated"
+
