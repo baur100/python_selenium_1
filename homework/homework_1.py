@@ -1,9 +1,3 @@
-# create class with 3 methods and write unit tests to it with a 3'A rule
-# 0-1 = 60000
-# 1-3 = 70000
-# 3-5 = 85000
-# > 5 = +20000/yearly
-
 class Countries:
     def __init__(self, name, population, land_area, density):
         self.name = name
