@@ -1,6 +1,6 @@
 from car import Car
 
-def test_gastype_not_diesel():
+def test_gas_type:
     # Arrange
     volvo_s90 = Car("Volvo", "S90", 2)
 

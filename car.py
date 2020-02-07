@@ -18,3 +18,4 @@ class Car:
             return "Elite"
         else:
             return "Diesel"
+1
