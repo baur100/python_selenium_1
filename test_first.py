@@ -10,6 +10,7 @@ def test_gastype_not_diesel():
     # Assert
     assert result != "Diesel", "Gas Type is wrong"
 
+
 def test_gastype_elite():
     # Arrange
     volvo_s90 = Car("Volvo", "S90", 3)
