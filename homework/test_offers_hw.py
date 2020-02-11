@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 # Homework 1============================================
 
-class Test_Contractors:
+class Test_Offers:
     @pytest.fixture()
     def test_setup(self):
         global driver
