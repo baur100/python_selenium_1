@@ -13,25 +13,18 @@ class TestLandingPage:
     @pytest.fixture()
     def test_setup(self):
         global driver
-        global wait
 
         driver = webdriver.Chrome(executable_path="./chromedriver.exe")
-        wait = WebDriverWait(driver,5)
-        driver.implicitly_wait(5)
+
 
         yield
         time.sleep(5)
         driver.quit()
 
-    # def test_open_title_page(self,test_setup):
-    #     landing_page = LandingPage(driver)
-    #     landing_page.open()
-    #     assert landing_page.check()
-
     def test_open_contractors(self, test_setup):
         landing_page = LandingPage(driver)
         landing_page.open()
         contractor_page = landing_page.open_contractor()
-        contractor_page.choose_contractor("Air conditioning","California")
-        # assert contractor_page.not_fount()
+        contractor_page.choose_contractor("Air conditioning","Arizona")
+        assert contractor_page.is_not_found_message()
 
