@@ -1,9 +1,11 @@
 from page_objects.contactor_page import ContractorPage
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.common.by import By
+from page_objects.base_page import BasePage
 
-
-class LandingPage:
+class LandingPage(BasePage):
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     @property
     def header(self):
@@ -11,7 +13,8 @@ class LandingPage:
 
     @property
     def contractor(self):
-        return self.driver.find_element_by_xpath("//*[text()='CONTRACTORS']")
+        return self.wait.until(ec.element_to_be_clickable((By.XPATH,"//*[text()='CONTRACTORS']")))
+
 
     def open(self):
         self.driver.get("https://testkwidos.tk/")
