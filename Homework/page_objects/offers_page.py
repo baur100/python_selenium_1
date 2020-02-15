@@ -22,7 +22,7 @@ class OffersPage(BasePage):
 
     @property
     def dropdown_county(self):
-        return self.driver.find_element_by_xpath("//*[@class='ui-multiselect-trigger-icon ui-clickable pi pi-caret-down'][1]")
+        return self.driver.find_element_by_xpath("(//*[@class='ui-multiselect-trigger-icon ui-clickable pi pi-caret-down'])[2]")
 
     @property
     def dropdown_county_close(self):
@@ -50,11 +50,11 @@ class OffersPage(BasePage):
 
     @property
     def all_counties(self):
-        return self.wait.until(ec.visibility_of_element_located((By.XPATH,"//*[@class='ui-chkbox-box ui-widget ui-corner-all ui-state-default'][0]")))
+        return self.wait.until(ec.visibility_of_element_located((By.XPATH,"(//*[@class='ui-chkbox-box ui-widget ui-corner-all ui-state-default'])[1]")))
 
     def choose_service_type(self, service):
         self.dropdown_service_type.click()
-        service_type = self.driver.find_element_by_xpath(f"//*[text()='{service}']/preceding-sibling::div")
+        service_type = self.wait.until(ec.visibility_of_element_located((By.XPATH,f"//*[text()='{service}']/preceding-sibling::div")))
         service_type.click()
         self.dropdown_service_close.click()
 
