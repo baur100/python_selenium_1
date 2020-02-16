@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
 from Homework.page_objects.landing_page import LandingPage
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 class TestLandingPage:
     @pytest.fixture()

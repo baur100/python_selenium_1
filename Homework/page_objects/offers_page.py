@@ -1,3 +1,6 @@
+# import sys
+# import os
+# sys.path.append(os.path.join(os.path.dirname(__file__),”...”,”...”))
 from page_objects.base_page import BasePage
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
