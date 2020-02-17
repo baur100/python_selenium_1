@@ -17,7 +17,3 @@ def test_check_CapitalString():
     obj3=SomeClass(6, "School", 4)
     results=obj3.check_CapitalString()
     assert results
-
-
-
-

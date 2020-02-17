@@ -18,3 +18,6 @@ class SomeClass:
         if self.string[0].isupper():
             chk=True
         return chk
+
+
+
