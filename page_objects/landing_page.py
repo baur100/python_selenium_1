@@ -13,7 +13,8 @@ class LandingPage(BasePage):
 
     @property
     def contractor(self):
-        return self.wait.until(ec.element_to_be_clickable((By.XPATH,"//*[text()='CONTRACTORS']")))
+        return self.driver.find_element_by_xpath("//*[text()='CONTRACTORS']")
+        # return self.wait.until(ec.element_to_be_clickable((By.XPATH,"//*[text()='CONTRACTORS']")))
 
 
     def open(self):
