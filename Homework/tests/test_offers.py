@@ -1,7 +1,6 @@
 import pytest
 from selenium import webdriver
 from Homework.page_objects.landing_page import LandingPage
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 class TestLandingPage:
@@ -12,6 +11,7 @@ class TestLandingPage:
         yield
         driver.quit()
 
+    @pytest.mark.skip
     def test_offers(self, test_setup):
         landing_page = LandingPage(driver)
         landing_page.open()
