@@ -32,17 +32,37 @@ class TestPets:
         assert pet_category["name"] == "dogs"
 
     def test_post_create_a_pet(self):
-        category = Category(2,"Dogs")
-        tag = Tag(5,"Red")
-        pet=Pet(888888,"avaliable","Dasye",category,["string"],[tag])
-        body = pet.__dict__
-        body["category"]=category.__dict__
-        body["tags"]=[tag.__dict__]
+        # body = {
+        #     "id": 77777,
+        #     "category": {
+        #         "id": 0,
+        #         "name": "string"
+        #     },
+        #     "name": "doggie",
+        #     "photoUrls": [
+        #         "string"
+        #     ],
+        #     "tags": [
+        #         {
+        #             "id": 0,
+        #             "name": "string"
+        #         }
+        #     ],
+        #     "status": "available"
+        # }
+        category = Category(2, "Dogs")
+        tag = Tag(5, "Red")
+        pet = Pet(888888, "avaliable", "Dasye", category.__dict__, ["string"], [tag.__dict__])
+        body = json.dumps(pet.__dict__) #.replace('"', '\"')
+        headers = {'Content-Type': 'application/json' }
 
-        b = json.dumps(body).replace('"', '\"')
-        print(body)
-        headers = {
-            'Content-Type': 'application/json'
-        }
-        response = requests.post(self.base_url + "/pet", headers=headers, data=b)
-        print(response.status_code)
+        response = requests.post(self.base_url + "/pet", headers=headers, data=body)
+
+        assert response.status_code == 200
+        json_response = json.loads(response.text)
+        pet_name = json_response["name"]
+        pet_id = json_response["id"]
+
+        assert pet_name == "Dasye"
+        assert pet_id == 888888
+
