@@ -6,9 +6,15 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.options import Options
 
-
-
 class TestLandingPage:
+    @pytest.fixture(scope="session",autouse=True)
+    def one_time_run(self):
+        pass
+
+    @pytest.fixture(scope="class",autouse=True)
+    def before_class(self):
+        pass
+
     @pytest.fixture()
     def test_setup(self):
         global driver
