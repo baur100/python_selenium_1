@@ -53,8 +53,8 @@ class TestPets:
         category = Category(2, "Dogs")
         tag = Tag(5, "Red")
         pet = Pet(888888, "avaliable", "Dasye", category.__dict__, ["string"], [tag.__dict__])
-        body = json.dumps(pet.__dict__) #.replace('"', '\"')
-        headers = {'Content-Type': 'application/json' }
+        body = json.dumps(pet.__dict__)  # .replace('"', '\"')
+        headers = {'Content-Type': 'application/json'}
 
         response = requests.post(self.base_url + "/pet", headers=headers, data=body)
 
@@ -66,3 +66,42 @@ class TestPets:
         assert pet_name == "Dasye"
         assert pet_id == 888888
 
+    def test_put_create_a_pet(self):
+        category = Category(2, "Dogs")
+        tag = Tag(5, "Red")
+        pet = Pet(888888, "avaliable", "Rose", category.__dict__, ["string"], [tag.__dict__])
+        body = json.dumps(pet.__dict__)  # .replace('"', '\"')
+        headers = {'Content-Type': 'application/json'}
+
+        response = requests.put(self.base_url + "/pet", headers=headers, data=body)
+
+        assert response.status_code == 200
+        json_response = json.loads(response.text)
+        pet_name = json_response["name"]
+        pet_id = json_response["id"]
+
+        assert pet_name == "Rose"
+        assert pet_id == 888888
+
+        response = requests.request("GET", self.get_url(888888))
+        assert response.status_code == 200
+
+        json_response = json.loads(response.text)
+
+        pet_name = json_response["name"]
+        pet_id = json_response["id"]
+
+        assert pet_name == "Rose"
+        assert pet_id == 888888
+
+    def test_delete_pet_by_id(self):
+        response = requests.request("DELETE", self.get_url(888888))
+        assert response.status_code == 200
+
+        response = requests.request("GET", self.get_url(888888))
+        assert response.status_code == 404
+
+        json_response = json.loads(response.text)
+        assert json_response["code"] == 1
+        assert json_response["type"] == "error"
+        assert json_response["message"] == "Pet not found"
