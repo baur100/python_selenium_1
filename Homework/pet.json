@@ -1,0 +1,18 @@
+{
+  "id": 100200300,
+  "category": {
+    "id": 0,
+    "name": "rabbits"
+  },
+  "name": "Cowboy",
+  "photoUrls": [
+    "https://kidszoo.org/wp-content/uploads/2015/11/bunny-rabbit.jpg"
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "rabbit"
+    }
+  ],
+  "status": "available"
+}

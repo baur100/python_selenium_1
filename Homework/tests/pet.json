@@ -1,0 +1,18 @@
+{
+   "id":99332222555,
+   "category":{
+      "id":0,
+      "name":"cats"
+   },
+   "name":"Anfisa new new",
+   "photoUrls":[
+      "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
+   ],
+   "tags":[
+      {
+         "id":1,
+         "name":"kittens"
+      }
+   ],
+   "status":"available"
+}
