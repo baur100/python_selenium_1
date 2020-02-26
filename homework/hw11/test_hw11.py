@@ -29,6 +29,7 @@ class TestLandingPage:
         how_it_works_page = landing_page.open_how_it_works()
         how_it_works_page.all_how_it_works()
 
+
     # @pytest.mark.skip
     def test_blogs(self, test_setup):
         landing_page = LandingPage(driver)
