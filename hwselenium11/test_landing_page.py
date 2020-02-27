@@ -1,11 +1,8 @@
 import pytest
 from selenium import webdriver
 import time
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as conditions
-from selenium.webdriver.common.by import By
 from hwselenium11.pageobjects.landing_page import LandingPage
-from hwselenium11.pageobjects.offers_page import OffersPage
+
 
 
 
